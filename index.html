@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="js/sierpinski.js"></script>
+
+  <title>Sierpinski</title>
+
+  <style>
+
+    h1, p, div {
+      font-family: Helvetica, sans-serif;
+    }
+
+    .triangle {
+      stroke: none;
+      fill: black;
+    }
+    
+  </style>
+
+</head>
+
+<body>
+
+<h1>
+The Sierpinski Gasket
+</h1>
+
+<div class="container">
+  <div class="vis">
+  <!-- Sierpinski Gasket Vis -->
+      <svg width=800 height=800>
+        <g id="sierpinski">
+        </g>
+      </svg>
+  </div>
+</div>
+
+<script type="text/javascript">
+// draw triangle for specific parameters
+var n = 10,        // number of iterations
+  x = 400,         // x coordinate of top triangle vertex
+  y = 5,           // y coordinate of top triangle vertex
+  sideLength = 700 // side length of largest triangle
+
+// generate a list of triangles using iterative Sierpinksi algo
+// and then draw them as SVGs appended to group element
+triangles = iterativeSierpinski(n, x, y, sideLength)
+g = document.getElementById("sierpinski")
+drawSierpinski(g, triangles)
+console.log("done")
+</script>
+
+</body>
+</html>
